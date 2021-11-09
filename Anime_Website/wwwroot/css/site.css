@@ -5,6 +5,7 @@
 
 header {
     border-bottom: 1px solid #9a9191;
+    height: 40px;
 }
 
 content {
@@ -20,8 +21,14 @@ aside {
     float: right;
     border-left: 1px solid #9a9191;
 }
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    border-top: 1px solid #9a9191;
+}
 
 footer ul li{
     display: inline; 
-    padding-right: 350px;
+    padding-right: 400px;
 }
