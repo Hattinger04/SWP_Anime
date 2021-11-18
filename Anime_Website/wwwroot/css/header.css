@@ -10,13 +10,15 @@ header {
 nav {
     background: none !important;
     text-transform: uppercase;
+    font-size: 25px !important;
+    font-weight: bold; 
     display: inline-block;
 }
 
     nav li {
-        margin-left: 7em;
-        margin-right: 7em;
-        font-size: larger; 
+        margin-left: 6em;
+        margin-right: 6em;
+        margin-top: 10px; 
     }
 
 .hoverable {
@@ -61,6 +63,14 @@ nav {
 .navbar {
     text-align: center !important;
     display: inline-block;
+}
+
+.navbar-right > ul > li {
+    float: left;
+}
+
+.navbar-right > li > a {
+    display: block;
 }
 
 #id_header a {

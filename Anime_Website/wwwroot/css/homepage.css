@@ -1,7 +1,10 @@
 ﻿body {
-    background-image: url('../images/itachi.jpg');
+    background-image: url('../images/1.jpg');
+    background-repeat: no-repeat;
 }
-
+body::-webkit-scrollbar {
+    display: none;
+}
 footer {
     background-image: none; 
     background: black; 
@@ -22,6 +25,6 @@ content {
 footer {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -350px;
     left: 0;
 }
