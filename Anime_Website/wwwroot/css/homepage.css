@@ -1,4 +1,13 @@
-﻿#container {
+﻿body {
+    background-image: url('../images/itachi.jpg');
+}
+
+footer {
+    background-image: none; 
+    background: black; 
+}
+
+#container {
     min-width: 640px;
     margin: 0px auto;
 }
@@ -8,4 +17,11 @@ content {
     min-width: 500px;
     height: 78vh;
     border-left: 1px solid #9a9191;
+}
+
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
