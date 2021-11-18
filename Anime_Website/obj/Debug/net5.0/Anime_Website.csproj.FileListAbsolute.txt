@@ -816,3 +816,4 @@ D:\Htl\4\swp1\AnimeList\SWP_Anime\Anime_Website\obj\Debug\net5.0\Anime_Website.d
 D:\Htl\4\swp1\AnimeList\SWP_Anime\Anime_Website\obj\Debug\net5.0\ref\Anime_Website.dll
 D:\Htl\4\swp1\AnimeList\SWP_Anime\Anime_Website\obj\Debug\net5.0\Anime_Website.pdb
 D:\Htl\4\swp1\AnimeList\SWP_Anime\Anime_Website\obj\Debug\net5.0\Anime_Website.genruntimeconfig.cache
+C:\Users\s8gre\Documents\Simon\HTL\4BHWII\SWP\C\animewebsite\Anime_Website\Anime_Website\obj\Debug\net5.0\Razor\Views\Shared\Header.cshtml.g.cs

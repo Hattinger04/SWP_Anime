@@ -1,0 +1,11 @@
+﻿#container {
+    min-width: 640px;
+    margin: 0px auto;
+}
+
+content {
+    width: 100%;
+    min-width: 500px;
+    height: 78vh;
+    border-left: 1px solid #9a9191;
+}
