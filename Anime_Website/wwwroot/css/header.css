@@ -1,5 +1,8 @@
 ﻿/*Navigationsbar:*/
-
+.primary-header{
+    justify-content:center;
+    position: absolute;
+}
 header {
     background-color: transparent; 
     font-weight: 600;
@@ -15,11 +18,6 @@ nav {
     display: inline-block;
 }
 
-    nav li {
-        margin-left: 6em;
-        margin-right: 6em;
-        margin-top: 10px; 
-    }
 
 .hoverable {
     display: inline-block;
@@ -56,7 +54,7 @@ nav {
             opacity: 1;
             transform: translateY(-5px);
         }
-%
+
 
 
 
@@ -76,5 +74,14 @@ nav {
 #id_header a {
     color: inherit;
     text-decoration: none;
+}
+
+.primary-list{
+    display: flex;
+}
+
+.primary-list > li{
+    padding-inline:3rem;
+    justify-content:center;
 }
 

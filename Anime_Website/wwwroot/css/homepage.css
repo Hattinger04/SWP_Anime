@@ -2,12 +2,19 @@
     background-image: url('../images/1.jpg');
     background-repeat: no-repeat;
 }
+
+body background-image{
+    object-position: center;
+    object-fit: cover;
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
 footer {
-    background-image: none; 
-    background: black; 
+    background-image: none;
+    background: lightgray;
+   ;
 }
 
 #container {

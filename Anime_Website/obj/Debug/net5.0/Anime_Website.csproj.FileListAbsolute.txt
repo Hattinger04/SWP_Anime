@@ -1227,3 +1227,4 @@ C:\Users\s8gre\Documents\Schule\4BHWII\SWP\CSharp\SWP_Anime\Anime_Website\obj\De
 C:\Users\s8gre\Documents\Schule\4BHWII\SWP\CSharp\SWP_Anime\Anime_Website\obj\Debug\net5.0\ref\Anime_Website.dll
 C:\Users\s8gre\Documents\Schule\4BHWII\SWP\CSharp\SWP_Anime\Anime_Website\obj\Debug\net5.0\Anime_Website.pdb
 C:\Users\s8gre\Documents\Schule\4BHWII\SWP\CSharp\SWP_Anime\Anime_Website\obj\Debug\net5.0\Anime_Website.genruntimeconfig.cache
+D:\Htl\4\swp1\AnimeList\SWP_Anime\Anime_Website\obj\Debug\net5.0\Razor\Views\Shared\Header.cshtml.g.cs
