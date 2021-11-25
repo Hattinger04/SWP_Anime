@@ -16,8 +16,9 @@ body::-webkit-scrollbar {
     display: none;
 }
 footer {
-    background: lightgray;
+    background: black;
     position: relative;
+    color: #C1AEAD;
 }
 
 #container {
@@ -30,7 +31,6 @@ footer {
     width: 100%;
     min-width: 500px;
     height: 100vh;
-    border-left: 1px solid #9a9191;
     top: 0;
     margin: 0;
 }
