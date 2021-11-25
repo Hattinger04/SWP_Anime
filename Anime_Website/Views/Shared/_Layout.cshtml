@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
-<body onload = " fullFett()">
+<body onload = "startTimer(), enterFullscreen(document.documentElement)" >
 
     <div id="container">
 
@@ -18,7 +18,7 @@
             <partial name="Header" />
         </header>
 
-        <main style="height: 100vh;">
+        <main id="fullscreen" style="height: 100vh;">
             <content class="primary-content">
                 @RenderBody()
             </content>
