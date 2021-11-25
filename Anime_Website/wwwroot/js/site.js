@@ -1,11 +1,12 @@
-﻿function displayNextImage() {
+﻿
+function displayNextImage() {
     x = x + 1;
-    x = x % 4;
-document.getElementById("img").src = images[x];
+    x = x % 3;
+   document.getElementById("img").src = images[x];
 }
 
 function startTimer() {
-    setInterval(displayNextImage, 10000);
+    setInterval(displayNextImage, 1000);
 }
 
 function enterFullscreen(element) {
