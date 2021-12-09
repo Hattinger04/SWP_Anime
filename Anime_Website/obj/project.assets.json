@@ -6260,19 +6260,21 @@
   },
   "packageFolders": {
     "C:\\Users\\s8gre\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\s8gre\\Documents\\Schule\\4BHWII\\SWP\\CSharp\\SWP_Anime\\Anime_Website\\Anime_Website.csproj",
+      "projectUniqueName": "C:\\Users\\s8gre\\Documents\\Simon\\HTL\\4BHWII\\SWP\\C\\animewebsite\\SWP_Anime\\Anime_Website\\Anime_Website.csproj",
       "projectName": "Anime_Website",
-      "projectPath": "C:\\Users\\s8gre\\Documents\\Schule\\4BHWII\\SWP\\CSharp\\SWP_Anime\\Anime_Website\\Anime_Website.csproj",
+      "projectPath": "C:\\Users\\s8gre\\Documents\\Simon\\HTL\\4BHWII\\SWP\\C\\animewebsite\\SWP_Anime\\Anime_Website\\Anime_Website.csproj",
       "packagesPath": "C:\\Users\\s8gre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\s8gre\\Documents\\Schule\\4BHWII\\SWP\\CSharp\\SWP_Anime\\Anime_Website\\obj\\",
+      "outputPath": "C:\\Users\\s8gre\\Documents\\Simon\\HTL\\4BHWII\\SWP\\C\\animewebsite\\SWP_Anime\\Anime_Website\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\s8gre\\AppData\\Roaming\\NuGet\\NuGet.Config",
