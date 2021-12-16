@@ -5,41 +5,52 @@
 }
 
 <div style="height:100vh">
-    <form asp-controller="user" asp-action="Home" method="post">
-        <p>
-            <label asp-for="Username"> Benutzername </label><br />
-            <input type="text" asp-for="Username" />
-            <span asp-validation-for="Username"></span>
-        </p>
-        <p>
-            <label asp-for="Password"> Password </label><br />
-            <input type="password" asp-for="Password" />
-            <span asp-validation-for="Password"></span>
-        </p>
-        <p>
-            <label asp-for="Email"> Email </label><br />
-            <input type="email" asp-for="Email" />
-            <span asp-validation-for="Email"></span>
-        </p>
-        <p>
-            <input type="submit" value="login" />
-        </p>
-        </p>
-    </form>
-    
-    <form asp-controller="user" asp-action="login" method="post">
-        <p>
-            <label asp-for="Username"> Benutzername </label><br />
-            <input type="text" asp-for="Username" />
-            <span asp-validation-for="Username"></span>
-        </p>
-        <p>
-            <label asp-for="Password"> Password </label><br />
-            <input type="password" asp-for="Password" />
-            <span asp-validation-for="Password"></span>
-        </p>
-        <p>
-            <input type="submit" value="register" />
-        </p>
-    </form>
+    <div class="container">
+        <div class="row" style="height: 25vh"></div>
+        <div class="row" style="height: 50vh">
+            <div class="col-2"></div>
+            <div class="col-4">
+                <form asp-controller="user" asp-action="Home" method="post">
+                    <p>
+                        <label asp-for="Username"> Benutzername </label><br />
+                        <input type="text" asp-for="Username" />
+                        <span asp-validation-for="Username"></span>
+                    </p>
+                    <p>
+                        <label asp-for="Password"> Password </label><br />
+                        <input type="password" asp-for="Password" />
+                        <span asp-validation-for="Password"></span>
+                    </p>
+                    <p>
+                        <label asp-for="Email"> Email </label><br />
+                        <input type="email" asp-for="Email" />
+                        <span asp-validation-for="Email"></span>
+                    </p>
+                    <p>
+                        <input type="submit" value="login" />
+                    </p>
+                    </p>
+                </form>
+            </div>
+            <div class="col-4">
+                <form asp-controller="user" asp-action="login" method="post">
+                    <p>
+                        <label asp-for="Username"> Benutzername </label><br />
+                        <input type="text" asp-for="Username" />
+                        <span asp-validation-for="Username"></span>
+                    </p>
+                    <p>
+                        <label asp-for="Password"> Password </label><br />
+                        <input type="password" asp-for="Password" />
+                        <span asp-validation-for="Password"></span>
+                    </p>
+                    <p>
+                        <input type="submit" value="register" />
+                    </p>
+                </form>
+            </div>
+            </div>
+            <div class="col-2"></div>
+            <div class="row" style="height: 25vh"></div>
+        </div>
 </div>
