@@ -30,6 +30,11 @@ namespace Anime_Website.Controllers
             return View();
         }
 
+        public IActionResult Home()
+        {
+            return RedirectToAction("Home/Index"); 
+        }
+
         private void ValidateRegistrationData(User user)
         {
             if (user == null)

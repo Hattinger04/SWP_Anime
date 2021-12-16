@@ -5,7 +5,7 @@
 }
 
 <div style="height:100vh">
-    <form asp-controller="user" asp-action="registration" method="post">
+    <form asp-controller="user" asp-action="Home" method="post">
         <p>
             <label asp-for="Username"> Benutzername </label><br />
             <input type="text" asp-for="Username" />
@@ -22,10 +22,24 @@
             <span asp-validation-for="Email"></span>
         </p>
         <p>
-            <input type="submit" value="absenden" />
-            <input type="reset" value="abbrechen" />
+            <input type="submit" value="login" />
         </p>
-
+        </p>
+    </form>
+    
+    <form asp-controller="user" asp-action="login" method="post">
+        <p>
+            <label asp-for="Username"> Benutzername </label><br />
+            <input type="text" asp-for="Username" />
+            <span asp-validation-for="Username"></span>
+        </p>
+        <p>
+            <label asp-for="Password"> Password </label><br />
+            <input type="password" asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </p>
+        <p>
+            <input type="submit" value="register" />
         </p>
     </form>
 </div>
