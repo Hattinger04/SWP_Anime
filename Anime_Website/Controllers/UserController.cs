@@ -13,7 +13,11 @@ namespace Anime_Website.Controllers
         {
             return View();
         }
-
+        [HttpGet]
+        public IActionResult Login() {
+            return View();
+        }
+        [HttpPost]
         public IActionResult Login(User userDataFromForm)
         {
             if (userDataFromForm == null)
@@ -25,7 +29,7 @@ namespace Anime_Website.Controllers
             if (ModelState.IsValid)
             {
                 // TODO: DB
-                return View("_Message", new Message("Registrierung", "Ihre Daten wurden erfolgreich abgespeichert"));
+                return View();
             }
             return View();
         }
