@@ -4,7 +4,7 @@ use testwebsite;
 
 create table users(
 	user_id int unsigned not null auto_increment, 
-	username varchar(50) not null,
+	username varchar(50) not null unique,
 	password varchar(300) not null, 
 	email varchar(150) null, 
 	birthdate date null, 

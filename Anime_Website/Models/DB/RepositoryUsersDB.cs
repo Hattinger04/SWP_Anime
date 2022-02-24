@@ -89,7 +89,7 @@ namespace FirstWebApp.Models.DB {
                             UserID = Convert.ToInt32(reader["user_id"]),
                             Username = Convert.ToString(reader["username"]),
                             Password = Convert.ToString(reader["password"]),
-                            Email = Convert.ToString(reader["email"]),
+                            Email = Convert.ToString(reader["email"])
                         });   
                     }
                 }
@@ -106,7 +106,7 @@ namespace FirstWebApp.Models.DB {
                             UserID = user_id,
                             Username = Convert.ToString(reader["username"]),
                             Password = Convert.ToString(reader["password"]),
-                            Email = Convert.ToString(reader["email"]),
+                            Email = Convert.ToString(reader["email"])
                         };
                     }
                 }               
@@ -151,7 +151,7 @@ namespace FirstWebApp.Models.DB {
                             UserID = Convert.ToInt32(reader["user_id"]),
                             Username = username, 
                             Password = password, 
-                            Email = Convert.ToString(reader["email"]),
+                            Email = Convert.ToString(reader["email"])
                         };
                     }
                 }
