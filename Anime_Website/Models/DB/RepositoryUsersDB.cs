@@ -142,7 +142,21 @@ namespace FirstWebApp.Models.DB {
         }
 
         public User Login(string username, string password) {
-            throw new NotImplementedException();
+            if (this.connection?.State == System.Data.ConnectionState.Open) {
+                DbCommand cmd = this.connection.CreateCommand();
+                cmd.CommandText = "select * from users where username = @username and password =  @password";
+                using (DbDataReader reader = cmd.ExecuteReader()) {
+                    if (reader.Read()) {
+                        return new User() {
+                            UserID = Convert.ToInt32(reader["user_id"]),
+                            Username = username, 
+                            Password = password, 
+                            Email = Convert.ToString(reader["email"]),
+                        };
+                    }
+                }
+            }
+            return null; 
         }
     }
 }
