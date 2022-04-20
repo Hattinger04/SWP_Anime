@@ -1,0 +1,15 @@
+﻿body {
+    background-image: url("../images/login.png");
+}
+
+.hallo {
+    height: 25vh;
+}
+input {
+    background: transparent;
+    border: solid;
+}
+label {
+    font-size: 24px;
+    color: antiquewhite;
+}
