@@ -4,21 +4,15 @@ use testwebsite;
 
 create table users(
 	user_id int unsigned not null auto_increment, 
-<<<<<<< HEAD
-	username varchar(50) not null,
-=======
 	username varchar(50) not null unique,
->>>>>>> e50850021beb0cfe5c1fa8e58895e424740ce6d8
 	password varchar(300) not null, 
 	email varchar(150) null, 
-	birthdate date null, 
-	gender int null, 
 
 	constraint user_id_PK primary  key(user_id)
 );
 
-insert into users values(null, "Kristof", sha2("Hallo123!", 512), "k@gmail.com", "2004-07-24", "0");
-insert into users values(null, "Johannes", sha2("Hallo123!", 512), "j@gmail.com", "2004-03-12", "0");
-insert into users values(null, "Gabi", sha2("alsdjf!", 512), "n@gmail.com", "2004-06-10", "0");
+insert into users values(null, "Kristof", sha2("Hallo123!", 512), "k@gmail.com");
+insert into users values(null, "Johannes", sha2("Hallo123!", 512), "j@gmail.com");
+insert into users values(null, "Gabi", sha2("alsdjf!", 512), "n@gmail.com");
 
 select * from users; 

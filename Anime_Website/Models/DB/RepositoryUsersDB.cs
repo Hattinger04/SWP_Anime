@@ -30,7 +30,7 @@ namespace Anime_Website.Models.DB {
             if (this.connection?.State == System.Data.ConnectionState.Open) {
                 DbCommand cmd = this.connection.CreateCommand();
                 cmd.CommandText = "update users set username = @username, password = sha2(@password, 512), " +
-                    "email = @email, birthdate = @birthdate, gender = @gender) where user_id = @user_id";
+                    "email = @email) where user_id = @user_id";
                 DbParameter paramUN = cmd.CreateParameter();
                 paramUN.ParameterName = "username";
                 paramUN.DbType = System.Data.DbType.String;
@@ -46,27 +46,15 @@ namespace Anime_Website.Models.DB {
                 paramEmail.DbType = System.Data.DbType.String;
                 paramEmail.Value = user.Email;
 
-                DbParameter paramBD = cmd.CreateParameter();
-                paramBD.ParameterName = "birthdate";
-                paramBD.DbType = System.Data.DbType.Date;
-                paramBD.Value = user.Birthdate;
-
-                DbParameter paramGender = cmd.CreateParameter();
-                paramGender.ParameterName = "gender";
-                paramGender.DbType = System.Data.DbType.Int32;
-                paramGender.Value = user.Gender;
-
                 DbParameter paramID = cmd.CreateParameter();
-                paramGender.ParameterName = "user_id";
-                paramGender.DbType = System.Data.DbType.Int32;
-                paramGender.Value = user.UserID;
+                paramID.ParameterName = "user_id";
+                paramID.DbType = System.Data.DbType.Int32;
+                paramID.Value = user.UserID;
 
 
                 cmd.Parameters.Add(paramUN);
                 cmd.Parameters.Add(paramPW);
                 cmd.Parameters.Add(paramEmail);
-                cmd.Parameters.Add(paramBD);
-                cmd.Parameters.Add(paramGender);
                 cmd.Parameters.Add(paramID);
 
                 return await cmd.ExecuteNonQueryAsync() == 1;
@@ -101,9 +89,7 @@ namespace Anime_Website.Models.DB {
                             UserID = Convert.ToInt32(reader["user_id"]),
                             Username = Convert.ToString(reader["username"]),
                             Password = Convert.ToString(reader["password"]),
-                            Birthdate = Convert.ToDateTime(reader["birthdate"]),
                             Email = Convert.ToString(reader["email"]),
-                            Gender = (Gender)Convert.ToInt32(reader["gender"])
                         });
                     }
                 }
@@ -129,9 +115,7 @@ namespace Anime_Website.Models.DB {
                             UserID = user_id,
                             Username = Convert.ToString(reader["username"]),
                             Password = Convert.ToString(reader["password"]),
-                            Birthdate = Convert.ToDateTime(reader["birthdate"]),
                             Email = Convert.ToString(reader["email"]),
-                            Gender = (Gender)Convert.ToInt32(reader["gender"])
                         };
                     }
                 }
@@ -141,7 +125,7 @@ namespace Anime_Website.Models.DB {
         public async Task<bool> Insert(User user) {
             if (this.connection?.State == System.Data.ConnectionState.Open) {
                 DbCommand cmd = this.connection.CreateCommand();
-                cmd.CommandText = "insert into users values(null, @username, sha2(@password, 512), @email, @birthdate, @gender)";
+                cmd.CommandText = "insert into users values(null, @username, sha2(@password, 512), @email)";
                 DbParameter paramUN = cmd.CreateParameter();
                 paramUN.ParameterName = "username";
                 paramUN.DbType = System.Data.DbType.String;
@@ -157,21 +141,10 @@ namespace Anime_Website.Models.DB {
                 paramEmail.DbType = System.Data.DbType.String;
                 paramEmail.Value = user.Email;
 
-                DbParameter paramBD = cmd.CreateParameter();
-                paramBD.ParameterName = "birthdate";
-                paramBD.DbType = System.Data.DbType.Date;
-                paramBD.Value = user.Birthdate;
-
-                DbParameter paramGender = cmd.CreateParameter();
-                paramGender.ParameterName = "gender";
-                paramGender.DbType = System.Data.DbType.Int32;
-                paramGender.Value = user.Gender;
-
+                
                 cmd.Parameters.Add(paramUN);
                 cmd.Parameters.Add(paramPW);
                 cmd.Parameters.Add(paramEmail);
-                cmd.Parameters.Add(paramBD);
-                cmd.Parameters.Add(paramGender);
 
                 return await cmd.ExecuteNonQueryAsync() == 1;
             }
@@ -202,9 +175,7 @@ namespace Anime_Website.Models.DB {
                             UserID = Convert.ToInt32(reader["user_id"]),
                             Username = Convert.ToString(reader["username"]),
                             Password = Convert.ToString(reader["password"]),
-                            Birthdate = Convert.ToDateTime(reader["birthdate"]),
                             Email = Convert.ToString(reader["email"]),
-                            Gender = (Gender)Convert.ToInt32(reader["gender"])
                         };
                     }
                 }

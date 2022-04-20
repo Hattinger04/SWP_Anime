@@ -22,11 +22,11 @@
                         <span asp-validation-for="Password"></span>
                     </p>
                     <p>
-                        <input type="submit" value="register" />
+                        <input type="submit" value="login" />
                     </p>
                 </form>
                 <div class="col-4">
-                    <form asp-controller="user" asp-action="register" method="post">
+                    <form asp-controller="user" asp-action="registration" method="post">
                         <p>
                             <label asp-for="Username"> Benutzername </label><br />
                             <input type="text" asp-for="Username" />
@@ -43,7 +43,7 @@
                             <span asp-validation-for="Email"></span>
                         </p>
                         <p>
-                            <input type="submit" value="login" />
+                            <input type="submit" value="register" />
                         </p>
                         </p>
                     </form>
