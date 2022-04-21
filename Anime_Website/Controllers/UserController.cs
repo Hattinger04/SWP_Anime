@@ -13,15 +13,13 @@ namespace Anime_Website.Controllers {
     public class UserController : Controller {
 
         private IRepositoryUsers repo = new RepositoryUsersDB();
-        public async Task<IActionResult> Index() {
-            try {
-                await repo.ConnectAsync();
-                return View(await repo.GetAllUsers());
-            } catch (DbException) {
-                return View("_Message", new Message("Datenbankfehler!", "Die Benutzer konnten nicht geladen werden! Versuchen sie es später erneut."));
-            } finally {
-                await repo.DisconnectAsync();
+        
+        [HttpGet]
+        public IActionResult Index() {
+            if (HttpContext.Session.GetString("user") != null) {
+                return View();
             }
+            return RedirectToAction("Login"); 
         }
 
         [HttpPost]
@@ -60,11 +58,10 @@ namespace Anime_Website.Controllers {
         }
         [HttpGet]
         public IActionResult Login() {
-            return View();
-            //if(Session["Username"] != null) {
-            //    return View(Session["Username"]);
-            //}
-            return View("_Message", new Message("Sessionfehler!", "Keine Session vorhanden!")); 
+            if (HttpContext.Session.GetString("user") != null) {
+                return RedirectToAction("Index");
+            }
+            return View(); 
         }
         [HttpPost]
         public async Task<IActionResult> Login(User userDataFromForm) {
@@ -74,7 +71,9 @@ namespace Anime_Website.Controllers {
             try {
                 await repo.ConnectAsync();
                 if (await repo.Login(userDataFromForm.Username, userDataFromForm.Password) != null) {
-                    return View("_Message", new Message("Login", "User " + userDataFromForm.Username + " erfolgreich angemeldet!"));
+                    HttpContext.Session.SetString("user", userDataFromForm.getJsonFromUser());
+                    // TODO: Set picture on website! 
+                    return RedirectToAction("Index");
                 } else {
                     return View("_Message", new Message("Login", "Ihr Username oder Password war falsch", "Bitte überprüfen sie ihre Daten!"));
                 }
@@ -121,15 +120,13 @@ namespace Anime_Website.Controllers {
                 return Content("file not selected");
             // TODO: add session - username to path
             var path = Path.Combine(
-                        Directory.GetCurrentDirectory(), "wwwroot/userimages",
+                        Directory.GetCurrentDirectory(), "wwwroot/userimages/" + Models.User.getUserFromJson(HttpContext.Session.GetString("user")).Username,
                         file.FileName);
 
             using (var stream = new FileStream(path, FileMode.Create)) {
                 await file.CopyToAsync(stream);
             }
-
             return RedirectToAction("Index");
         }
-
     }
 }

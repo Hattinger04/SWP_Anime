@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json; 
 
 namespace Anime_Website.Models
 {
@@ -19,5 +20,13 @@ namespace Anime_Website.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+
+        public string getJsonFromUser() {
+            return JsonConvert.SerializeObject(this); 
+        }
+
+        public static User getUserFromJson(string json) {
+            return JsonConvert.DeserializeObject<User>(json); 
+        }
     }
 }
