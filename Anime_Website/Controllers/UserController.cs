@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,7 +13,6 @@ namespace Anime_Website.Controllers {
     public class UserController : Controller {
 
         private IRepositoryUsers repo = new RepositoryUsersDB();
-
         public async Task<IActionResult> Index() {
             try {
                 await repo.ConnectAsync();
@@ -60,7 +60,10 @@ namespace Anime_Website.Controllers {
         }
         [HttpGet]
         public IActionResult Login() {
-            return View();
+            if(Session["Username"] != null) {
+                return View(Session["Username"]);
+            }
+            return View("_Message", new Message("Sessionfehler!", "Keine Session vorhanden!")); 
         }
         [HttpPost]
         public async Task<IActionResult> Login(User userDataFromForm) {
