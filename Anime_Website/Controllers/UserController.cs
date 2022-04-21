@@ -118,9 +118,14 @@ namespace Anime_Website.Controllers {
         public async Task<IActionResult> UploadFile(IFormFile file) {
             if (file == null || file.Length == 0)
                 return Content("file not selected");
-            // in db speichern oder in file system? 
+            // TODO: in db speichern oder in file system? 
             string dir = "wwwroot/userimages/" + Models.User.getUserFromJson(HttpContext.Session.GetString("user")).Username;
             System.IO.Directory.CreateDirectory(dir);
+            // Deleting files in directory if exists
+            System.IO.DirectoryInfo di = new DirectoryInfo(dir); 
+            foreach(FileInfo fileInfo in di.GetFiles()) {
+                fileInfo.Delete(); 
+            }
             var path = Path.Combine(
                         Directory.GetCurrentDirectory(), dir,
                         file.FileName);
