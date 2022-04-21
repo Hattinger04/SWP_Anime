@@ -118,14 +118,17 @@ namespace Anime_Website.Controllers {
         public async Task<IActionResult> UploadFile(IFormFile file) {
             if (file == null || file.Length == 0)
                 return Content("file not selected");
-            // TODO: add session - username to path
+            // in db speichern oder in file system? 
+            string dir = "wwwroot/userimages/" + Models.User.getUserFromJson(HttpContext.Session.GetString("user")).Username;
+            System.IO.Directory.CreateDirectory(dir);
             var path = Path.Combine(
-                        Directory.GetCurrentDirectory(), "wwwroot/userimages/" + Models.User.getUserFromJson(HttpContext.Session.GetString("user")).Username,
+                        Directory.GetCurrentDirectory(), dir,
                         file.FileName);
 
             using (var stream = new FileStream(path, FileMode.Create)) {
                 await file.CopyToAsync(stream);
             }
+            // TODO: change profil picture 
             return RedirectToAction("Index");
         }
     }
