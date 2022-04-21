@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Anime_Website.Models;
 using Anime_Website.Models.DB;
 using System.Data.Common;
-
+using System.IO;
 
 namespace Anime_Website.Controllers {
     public class UserController : Controller {
@@ -60,9 +60,10 @@ namespace Anime_Website.Controllers {
         }
         [HttpGet]
         public IActionResult Login() {
-            if(Session["Username"] != null) {
-                return View(Session["Username"]);
-            }
+            return View();
+            //if(Session["Username"] != null) {
+            //    return View(Session["Username"]);
+            //}
             return View("_Message", new Message("Sessionfehler!", "Keine Session vorhanden!")); 
         }
         [HttpPost]
@@ -113,5 +114,22 @@ namespace Anime_Website.Controllers {
                 await repo.DisconnectAsync();
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UploadFile(IFormFile file) {
+            if (file == null || file.Length == 0)
+                return Content("file not selected");
+            // TODO: add session - username to path
+            var path = Path.Combine(
+                        Directory.GetCurrentDirectory(), "wwwroot/userimages",
+                        file.FileName);
+
+            using (var stream = new FileStream(path, FileMode.Create)) {
+                await file.CopyToAsync(stream);
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

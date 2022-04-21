@@ -3,5 +3,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<link rel="stylesheet" href="../css/login.css">
+@* Julius, 
+    1.  kanns isch des schu hässlich, wenn ma jedes mal, wenn ma a view erstellen will, 
+        3 divs erstellen muas (und oane row hallo XD)
+    2.  muasch du des no schön machen, is für an upload von am file als profilbild - upload geht schu*@
+<div class="container">
+    <div class="row hallo"></div>
+    <div class="row" style="height: 50vh">
+
+        <form asp-controller="user" asp-action="UploadFile" method="post" enctype="multipart/form-data">
+
+            <input type="file" name="file" />
+            <button type="submit">Upload File</button>
+        </form>
+    </div>
+</div>
 
