@@ -85,6 +85,11 @@ namespace Anime_Website.Controllers {
             }
         }
         [HttpGet]
+        public IActionResult Logout() {
+            HttpContext.Session.Remove("user"); 
+            return RedirectToAction("Index","Home"); 
+        }
+        [HttpGet]
         public async Task<IActionResult> Delete(int id) {
             try {
                 await repo.ConnectAsync();
@@ -136,8 +141,8 @@ namespace Anime_Website.Controllers {
                 await repo.ChangeUserPicture(user.UserID, user);
                 HttpContext.Session.SetString("user", user.getJsonFromUser()); 
                 return RedirectToAction("Index");
-            } catch (DbException ex) {
-                return View("_Message", new Message("Datenbankfehler " + ex.Message + "!", "Der Benutzer konnte nicht geändert werden! Versuchen sie es später erneut."));
+            } catch (DbException) {
+                return View("_Message", new Message("Datenbankfehler!", "Der Benutzer konnte nicht geändert werden! Versuchen sie es später erneut."));
             } finally {
                 await repo.DisconnectAsync();
             }
