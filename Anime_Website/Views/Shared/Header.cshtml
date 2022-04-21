@@ -1,4 +1,12 @@
-﻿<div class="container-fluid">
+﻿@using Microsoft.AspNetCore.Http;
+
+<style>
+    img {
+        clip-path: circle();
+    }
+</style>
+
+<div class="container-fluid">
     <nav class="navbar navbar-expand-sm navbar-inverse fixed-top" id="id_header">
         <div class="container-fluid">
             <ul class="nav navbar-nav mx-auto primary-list justify-content-end">
@@ -8,7 +16,15 @@
                 <li><a id="len4" class="hoverable" href="">About Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a id="len5" href="/User/Login"> <img src="~/images/profilpicture.png" width="80" height="60"></a></li>
+                @if (Context.Session.GetString("user") == null) {
+                    <li><a id="len5" href="/User/Login"> <img src="~/images/profilpicture.png" width="80" height="60"></a></li>
+                } else if (Anime_Website.Models.User.getUserFromJson(Context.Session.GetString("user")).Profilpicture.Equals("")) {
+                    @Anime_Website.Models.User.getUserFromJson(Context.Session.GetString("user")).Username
+                    <li><a id="len5" href="/User/Login"> <img src="~/images/profilpicture.png" width="80" height="60"></a></li>
+                } else {
+                    @Anime_Website.Models.User.getUserFromJson(Context.Session.GetString("user")).Username
+                    <li><a id="len5" href="/User/Login"> <img src=@String.Format("data:image;base64,{0}", Anime_Website.Models.User.getUserFromJson(Context.Session.GetString("user")).Profilpicture) width="80" height="60"></a></li>
+                }
             </ul>
         </div>
     </nav>

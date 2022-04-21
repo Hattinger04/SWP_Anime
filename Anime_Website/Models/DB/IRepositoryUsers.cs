@@ -14,6 +14,8 @@ namespace Anime_Website.Models.DB {
         Task<bool> Insert(User user);
         Task<bool> Delete(int user_id);
         Task<bool> ChangeUserData(int userID, User newUserData);
+        Task<User> GetUser(int user_id);
+        Task<bool> ChangeUserPicture(int userID, User user);
         Task<List<User>> GetAllUsers();
         Task<User> Login(String username, String password);
 

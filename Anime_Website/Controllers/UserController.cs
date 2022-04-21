@@ -70,8 +70,9 @@ namespace Anime_Website.Controllers {
             }
             try {
                 await repo.ConnectAsync();
-                if (await repo.Login(userDataFromForm.Username, userDataFromForm.Password) != null) {
-                    HttpContext.Session.SetString("user", userDataFromForm.getJsonFromUser());
+                User user = await repo.Login(userDataFromForm.Username, userDataFromForm.Password); 
+                if (user != null) {
+                    HttpContext.Session.SetString("user", user.getJsonFromUser());
                     // TODO: Set picture on website! 
                     return RedirectToAction("Index");
                 } else {
@@ -116,25 +117,30 @@ namespace Anime_Website.Controllers {
 
         [HttpPost]
         public async Task<IActionResult> UploadFile(IFormFile file) {
-            if (file == null || file.Length == 0)
-                return Content("file not selected");
-            // TODO: in db speichern oder in file system? 
-            string dir = "wwwroot/userimages/" + Models.User.getUserFromJson(HttpContext.Session.GetString("user")).Username;
-            System.IO.Directory.CreateDirectory(dir);
-            // Deleting files in directory if exists
-            System.IO.DirectoryInfo di = new DirectoryInfo(dir); 
-            foreach(FileInfo fileInfo in di.GetFiles()) {
-                fileInfo.Delete(); 
-            }
-            var path = Path.Combine(
-                        Directory.GetCurrentDirectory(), dir,
-                        file.FileName);
+            try {
+                await repo.ConnectAsync();
+                if (file == null || file.Length == 0)
+                    return Content("file not selected");
 
-            using (var stream = new FileStream(path, FileMode.Create)) {
-                await file.CopyToAsync(stream);
+                var filePath = Path.GetTempFileName();
+                using (var stream = System.IO.File.Create(filePath)) {
+                    await file.CopyToAsync(stream);
+                }
+                
+                byte[] imageArray = System.IO.File.ReadAllBytes(filePath);
+                string base64ImageRepresentation = Convert.ToBase64String(imageArray);
+
+                User user = Models.User.getUserFromJson(HttpContext.Session.GetString("user")); 
+                user.Profilpicture = base64ImageRepresentation;
+                Console.WriteLine(user.getJsonFromUser()); 
+                await repo.ChangeUserPicture(user.UserID, user);
+                HttpContext.Session.SetString("user", user.getJsonFromUser()); 
+                return RedirectToAction("Index");
+            } catch (DbException ex) {
+                return View("_Message", new Message("Datenbankfehler " + ex.Message + "!", "Der Benutzer konnte nicht geändert werden! Versuchen sie es später erneut."));
+            } finally {
+                await repo.DisconnectAsync();
             }
-            // TODO: change profil picture 
-            return RedirectToAction("Index");
         }
     }
 }
