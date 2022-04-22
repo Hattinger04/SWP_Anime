@@ -1,5 +1,7 @@
-﻿
+﻿@model List<Anime_Website.Models.AnimeObject>
+
 <script src="~/js/site.js" asp-append-version="true"></script>
+
 
 @* Sollte man noch mit einer Liste + Schleife lösen *@
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="7500" data-pause="false">
@@ -18,19 +20,34 @@
         </div>
 
         @* Wechseln mit JavaScript, Anfangsidee
-         <div class="background-container">
-            <img id="img" class="background-picture-home" src="../images/1.jpg" />
-        </div>*@
+             <div class="background-container">
+                <img id="img" class="background-picture-home" src="../images/1.jpg" />
+            </div>*@
     </div>
 </div>
-<input autocomplete="off" type="text" placeholder="search for an anime">
-<div id="searchresults" class="cards">
-    <a href="">
-        <div class="card__image">
-            <img loading="lazy" src="" alt="" />
-        </div>
-        <div class="card__name">
-            <span>...</span>
-        </div>
-    </a>
+
+
+<div class="container">
+    <div class="row hallo"></div>
+    <div class="row" style="height: 50vh">
+
+        <form asp-controller="home" asp-action="index" method="post">
+            <input autocomplete="off" type="text" placeholder="search for an anime">
+        </form>
+        @if (Model != null && Model.Count() != 0) {
+            foreach (AnimeObject obj in Model) {
+                <div id="searchresults" class="cards">
+                    <a href=@obj.URL>
+                        <div class="card__image">
+                            <img loading="lazy" src=@obj.Image_URL alt=@obj.Name />
+                        </div>
+                        <div class="card__name">
+                            <span>@obj.Name</span>
+                        </div>
+                    </a>
+                </div>
+            }
+
+        }
+    </div>
 </div>
