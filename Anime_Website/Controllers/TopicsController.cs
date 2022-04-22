@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Anime_Website.Controllers
-{
-    public class TopicsController : Controller
-    {
-        public IActionResult Index()
-        {
+namespace Anime_Website.Controllers {
+    public class TopicsController : Controller {
+
+        [HttpGet]
+        public IActionResult Index() {
             return View();
         }
+        
     }
 }
