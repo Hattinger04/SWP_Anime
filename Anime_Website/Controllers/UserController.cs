@@ -73,7 +73,6 @@ namespace Anime_Website.Controllers {
                 User user = await repo.Login(userDataFromForm.Username, userDataFromForm.Password); 
                 if (user != null) {
                     HttpContext.Session.SetString("user", user.getJsonFromUser());
-                    // TODO: Set picture on website! 
                     return RedirectToAction("Index");
                 } else {
                     return View("_Message", new Message("Login", "Ihr Username oder Password war falsch", "Bitte überprüfen sie ihre Daten!"));
@@ -106,7 +105,6 @@ namespace Anime_Website.Controllers {
             return View();
         }
 
-        // Wird so natürlich nicht funktionieren 
         [HttpPost]
         public async Task<IActionResult> Update(User user, int id) {
             try {
@@ -124,9 +122,12 @@ namespace Anime_Website.Controllers {
         public async Task<IActionResult> UploadFile(IFormFile file) {
             try {
                 await repo.ConnectAsync();
+                // TODO: Change Content to smth else 
                 if (file == null || file.Length == 0)
                     return Content("file not selected");
-
+                if(file.Length > 1024 * 1024) {
+                    return Content("file too big"); 
+                }
                 var filePath = Path.GetTempFileName();
                 using (var stream = System.IO.File.Create(filePath)) {
                     await file.CopyToAsync(stream);
