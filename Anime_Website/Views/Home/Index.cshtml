@@ -32,7 +32,8 @@
     <div class="row" style="height: 50vh">
 
         <form asp-controller="home" asp-action="index" method="post">
-            <input autocomplete="off" type="text" placeholder="search for an anime">
+            <input id="search_anime" autocomplete="off" type="text" placeholder="search for an anime" name="search_anime">
+            <button>Button</button>
         </form>
         @if (Model != null && Model.Count() != 0) {
             foreach (AnimeObject obj in Model) {
@@ -47,7 +48,6 @@
                     </a>
                 </div>
             }
-
         }
     </div>
 </div>

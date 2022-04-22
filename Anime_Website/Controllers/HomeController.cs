@@ -8,21 +8,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Http;
 
-
 namespace Anime_Website.Controllers {
     public class HomeController : Controller {
 
         static HttpClient client = new HttpClient();
 
+        [HttpGet]
         public IActionResult Index() {
             return View();
         }
-
         [HttpPost]
-        public async Task<IActionResult> Index(string name) {
-            name = name.Replace(" ", "%20"); 
+        public async Task<IActionResult> Index(string search_anime) {
+            Console.WriteLine("Name: " + search_anime);
+            search_anime = search_anime.Replace(" ", "%20"); 
             string message = "";
-            HttpResponseMessage response = await client.GetAsync(String.Format("https://api.jikan.moe/v4/anime?q={0}&sfw", name));
+            HttpResponseMessage response = await client.GetAsync(String.Format("https://api.jikan.moe/v4/anime?q={0}&sfw", search_anime));
             if (response.IsSuccessStatusCode) {
                 message = await response.Content.ReadAsStringAsync();
                 dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(message);
