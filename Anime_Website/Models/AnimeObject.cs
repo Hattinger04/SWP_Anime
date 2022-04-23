@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace Anime_Website.Models {
     public class AnimeObject {
-
         public int ID { get; set; }
         public string Name { get; set; }
         public string URL { get; set; }

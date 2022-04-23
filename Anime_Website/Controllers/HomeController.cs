@@ -20,7 +20,6 @@ namespace Anime_Website.Controllers {
         [HttpPost]
         public async Task<IActionResult> Index(string search_anime) {
             Console.WriteLine("Name: " + search_anime);
-            search_anime = search_anime.Replace(" ", "%20"); 
             string message = "";
             HttpResponseMessage response = await client.GetAsync(String.Format("https://api.jikan.moe/v4/anime?q={0}&sfw", search_anime));
             if (response.IsSuccessStatusCode) {
