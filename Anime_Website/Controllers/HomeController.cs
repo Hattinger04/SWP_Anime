@@ -11,7 +11,7 @@ using System.Net.Http;
 namespace Anime_Website.Controllers {
     public class HomeController : Controller {
 
-        static HttpClient client = new HttpClient();
+        private static HttpClient client = new HttpClient();
 
         [HttpGet]
         public IActionResult Index() {
@@ -38,9 +38,6 @@ namespace Anime_Website.Controllers {
                             Status = jsonObj["data"][i]["status"],
                             URL = jsonObj["data"][i]["url"],
                         });
-                    }
-                    foreach (AnimeObject obj in animeObjects) {
-                        Console.WriteLine(obj.Name);
                     }
                     return View("Index", animeObjects);
                 }
