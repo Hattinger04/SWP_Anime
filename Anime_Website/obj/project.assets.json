@@ -1911,6 +1911,18 @@
           }
         }
       },
+      "System.ServiceModel.Syndication/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/System.ServiceModel.Syndication.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/System.ServiceModel.Syndication.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
       "System.Text.Encoding/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6342,6 +6354,31 @@
         "version.txt"
       ]
     },
+    "System.ServiceModel.Syndication/6.0.0": {
+      "sha512": "cp1mMNG87iJtE0oHXFtfWT6cfski2JNo5iU0siTPi/uN2k1CIJI6FE4jr4v3got2dzt7wBq17fSy44btun9GiA==",
+      "type": "package",
+      "path": "system.servicemodel.syndication/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.ServiceModel.Syndication.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.ServiceModel.Syndication.dll",
+        "lib/net461/System.ServiceModel.Syndication.xml",
+        "lib/net6.0/System.ServiceModel.Syndication.dll",
+        "lib/net6.0/System.ServiceModel.Syndication.xml",
+        "lib/netcoreapp3.1/System.ServiceModel.Syndication.dll",
+        "lib/netcoreapp3.1/System.ServiceModel.Syndication.xml",
+        "lib/netstandard2.0/System.ServiceModel.Syndication.dll",
+        "lib/netstandard2.0/System.ServiceModel.Syndication.xml",
+        "system.servicemodel.syndication.6.0.0.nupkg.sha512",
+        "system.servicemodel.syndication.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Text.Encoding/4.3.0": {
       "sha512": "BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
       "type": "package",
@@ -7038,7 +7075,8 @@
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 5.0.10",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "MySql.Data >= 8.0.28",
-      "RestSharp >= 107.3.0"
+      "RestSharp >= 107.3.0",
+      "System.ServiceModel.Syndication >= 6.0.0"
     ]
   },
   "packageFolders": {
@@ -7100,6 +7138,10 @@
           "RestSharp": {
             "target": "Package",
             "version": "[107.3.0, )"
+          },
+          "System.ServiceModel.Syndication": {
+            "target": "Package",
+            "version": "[6.0.0, )"
           }
         },
         "imports": [

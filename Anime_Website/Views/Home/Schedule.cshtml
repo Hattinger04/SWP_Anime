@@ -1,0 +1,16 @@
+﻿@model List<AnimeObject>
+
+@if (Model != null && Model.Count() != 0) {
+    foreach (AnimeObject obj in Model) {
+        <div id="searchresults" class="cards" style="width:50%;">
+            <a href=@obj.URL target="_blank" rel="noopener noreferrer">
+                <div class="card__image">
+                    <img loading="lazy" src=@obj.Image_URL alt=@obj.Name />
+                </div>
+                <div class="card__name" id="card_name">
+                    <span>@obj.Name</span>
+                </div>
+            </a>
+        </div>
+    }
+}                   

@@ -37,6 +37,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
           "MySql.Data": "8.0.28",
           "RestSharp": "107.3.0",
+          "System.ServiceModel.Syndication": "6.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -1701,6 +1702,17 @@
         }
       },
       "System.Security.Principal.Windows/4.7.0": {},
+      "System.ServiceModel.Syndication/6.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/System.ServiceModel.Syndication.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/System.ServiceModel.Syndication.dll": {}
+        }
+      },
       "System.Text.Encoding/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -4297,6 +4309,13 @@
       "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "System.ServiceModel.Syndication/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cp1mMNG87iJtE0oHXFtfWT6cfski2JNo5iU0siTPi/uN2k1CIJI6FE4jr4v3got2dzt7wBq17fSy44btun9GiA==",
+      "path": "system.servicemodel.syndication/6.0.0",
+      "hashPath": "system.servicemodel.syndication.6.0.0.nupkg.sha512"
     },
     "System.Text.Encoding/4.3.0": {
       "type": "package",
