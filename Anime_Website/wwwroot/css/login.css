@@ -6,7 +6,7 @@
     height: 25vh;
 }
 input {
-    background: transparent;
+    background-color: white;
     border: solid;
 }
 label {

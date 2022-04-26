@@ -1,7 +1,32 @@
-﻿
-@{
-    ViewData["Title"] = "Discord";
-}
+﻿@model List<Anime_Website.Models.AnimeObject>
+    <link rel="stylesheet" href="../css/search.css">
 
-<h1>Discord</h1>
-
+    <div class="primary-content">
+        <div class="container">
+            <div class="row" style="height:25vh;"></div>
+            <div class="row">
+                <form asp-controller="home" asp-action="discord" method="post">
+                    <input id="search_anime" autocomplete="off" type="text" placeholder="search for an anime" name="search_anime">
+                </form>
+                <div style="width:20%"></div>
+                <div style="height:60vh;width:60%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+                    @if (Model != null && Model.Count() != 0)
+                    {
+                        foreach (AnimeObject obj in Model)
+                        {
+                            <div id="searchresults" class="cards">
+                                <a href=@obj.URL target="_blank" rel="noopener noreferrer">
+                                    <div class="card__image">
+                                        <img loading="lazy" src=@obj.Image_URL alt=@obj.Name />
+                                    </div>
+                                    <div class="card__name">
+                                        <span>@obj.Name</span>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>

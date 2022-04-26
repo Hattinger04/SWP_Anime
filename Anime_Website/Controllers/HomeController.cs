@@ -18,7 +18,7 @@ namespace Anime_Website.Controllers {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Index(string search_anime) {
+        public async Task<IActionResult> Discord(string search_anime) {
             Console.WriteLine("Name: " + search_anime);
             string message = "";
             HttpResponseMessage response = await client.GetAsync(String.Format("https://api.jikan.moe/v4/anime?q={0}&sfw", search_anime));
@@ -38,7 +38,7 @@ namespace Anime_Website.Controllers {
                             URL = jsonObj["data"][i]["url"],
                         });
                     }
-                    return View("Index", animeObjects);
+                    return View("Discord", animeObjects);
                 }
                 return View("_Message", new Message("Kein Ergebnis!", "Die Abfrage hat kein Ergebnis geliefert!"));
             }
