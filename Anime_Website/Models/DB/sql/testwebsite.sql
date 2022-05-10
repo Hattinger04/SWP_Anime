@@ -9,7 +9,7 @@ create table users(
 	username varchar(50) not null unique,
 	password varchar(300) not null, 
 	email varchar(150) not null, 
-	profilpicture varchar(172), 
+	profilpicture varchar(1000000), 
 	constraint user_id_PK primary  key(user_id)
 );
 
