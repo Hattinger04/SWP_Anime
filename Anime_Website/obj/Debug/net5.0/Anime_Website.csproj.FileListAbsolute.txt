@@ -1684,3 +1684,5 @@ D:\Htl\4\swp1\AnimeList\SWP_Anime\Anime_Website\bin\Debug\net5.0\runtimes\win\li
 D:\Htl\4\swp1\AnimeList\SWP_Anime\Anime_Website\obj\Debug\net5.0\Razor\Views\Shared\_Message.cshtml.g.cs
 C:\Users\s8gre\Documents\Schule\4BHWII\SWP\CSharp\SWP_Anime\Anime_Website\bin\Debug\net5.0\System.ServiceModel.Syndication.dll
 C:\Users\s8gre\Documents\Schule\4BHWII\SWP\CSharp\SWP_Anime\Anime_Website\obj\Debug\net5.0\Razor\Views\Home\Schedule.cshtml.g.cs
+D:\Htl\4\swp1\AnimeList\SWP_Anime\Anime_Website\bin\Debug\net5.0\System.ServiceModel.Syndication.dll
+D:\Htl\4\swp1\AnimeList\SWP_Anime\Anime_Website\obj\Debug\net5.0\Razor\Views\Home\Schedule.cshtml.g.cs

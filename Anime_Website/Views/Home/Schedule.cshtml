@@ -1,16 +1,29 @@
-﻿@model List<AnimeObject>
+﻿
 
-@if (Model != null && Model.Count() != 0) {
-    foreach (AnimeObject obj in Model) {
-        <div id="searchresults" class="cards" style="width:50%;">
-            <a href=@obj.URL target="_blank" rel="noopener noreferrer">
-                <div class="card__image">
-                    <img loading="lazy" src=@obj.Image_URL alt=@obj.Name />
-                </div>
-                <div class="card__name" id="card_name">
-                    <span>@obj.Name</span>
-                </div>
-            </a>
+@model List<Anime_Website.Models.AnimeObject>
+<link rel="stylesheet" href="../css/search.css">
+
+<div class="primary-content">
+    <div class="container">
+        <div class="row" style="height:25vh;"></div>
+        <div class="row">
+            <div style="width:20%"></div>
+            <div style="height:60vh;width:60%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+                @if (Model != null && Model.Count() != 0)
+                {
+                    foreach (AnimeObject obj in Model)
+                    {                        
+                            <a href=@obj.URL target="_blank" rel="noopener noreferrer">
+                                <div class="card__image">
+                                    <img loading="lazy" src=@obj.Image_URL alt=@obj.Name />
+                                </div>
+                                <div class="card__name" id="card_name">
+                                    <span>@obj.Name</span>
+                                </div>
+                            </a>                    
+                    }
+                }
+            </div>
         </div>
-    }
-}                   
+    </div>
+</div>
