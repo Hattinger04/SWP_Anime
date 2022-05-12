@@ -1,15 +1,24 @@
 ﻿@model Anime_Website.Models.Message
-
-    <h3>@Model.Header</h3>
-    <p>
-        <b>Meldung</b>
-        @Model.MessageText
-    </p>
-
-    @if (Model.Solution != null && Model.Solution.Trim().Length >= 1) {
+<link rel="stylesheet" href="../css/Fehler.css">
+<div style="height:100vh">
+    <div style="height:20vh"></div>
+    <div class="row">
+    <div style="width:20%"></div>
+    <div>
+        <h3>@Model.Header</h3>
         <p>
-            <b>Lösung</b>
-            @Model.Solution
+            <b>Meldung</b>
+            @Model.MessageText <br />
         </p>
 
-    }
+        @if (Model.Solution != null && Model.Solution.Trim().Length >= 1)
+        {
+            <p>
+                <b>Lösung</b>
+                @Model.Solution <br />
+            </p>
+
+        }
+    </div>
+    </div>
+</div> 

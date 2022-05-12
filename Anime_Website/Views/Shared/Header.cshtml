@@ -15,7 +15,7 @@
                     <li><a id="len5" href="/User/Login"> <img src="~/images/profilpicture.png" width="80" height="60"></a></li>
                 } else if (Anime_Website.Models.User.getUserFromJson(Context.Session.GetString("user")).Profilpicture.Equals("")) {
                     @Anime_Website.Models.User.getUserFromJson(Context.Session.GetString("user")).Username
-                    <li><a id="len5" href="/User/Login"> <img src="~/images/profilpicture.png" width="80" height="60"></a></li>
+                    <li><a id="len5" href="/User/Login"> <img src="~/images/profilpicture.png" height="60"></a></li>
                 } else {
                     @Anime_Website.Models.User.getUserFromJson(Context.Session.GetString("user")).Username
                     <li><a id="len5" href="/User/Login"> <img src=@String.Format("data:image;base64,{0}", Anime_Website.Models.User.getUserFromJson(Context.Session.GetString("user")).Profilpicture) width="80" height="60"></a></li>
